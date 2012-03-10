@@ -1,0 +1,44 @@
+[color]
+  ui = always
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[user]
+  name = Dung Huynh
+  email = huynhquangdung@gmail.com
+  token = db8d5048d9f577eee3fb2b4202272ada
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  last = diff HEAD^                 # diff last committed change
+
+  # reset
+  unstage = reset HEAD              # remove files from index (tracking)
+  uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+  filelog = log -u                  # show changes to a file
+
+  # log
+  lg = log --decorate --graph --date=short --pretty=\"format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(white)%s %C(magenta) [%an]%Creset\"
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+
+[core]
+  editor = mvim -f
+[diff]
+  tool = kdiff3
+[difftool "kdiff3"]
+  trustExitCode = false
+  keepBackup = false
+[mergetool "kdiff3"]
+  trustexitcode = false
+  keepBackup = false
+[merge]
+  tool = kdiff3
+  summary = true
+  verbosity = 1
+[advice]
+  statusHints = false
+[format]
+  ; pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(white)%s %C(magenta) [%an]%Creset

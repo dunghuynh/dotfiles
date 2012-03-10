@@ -1,0 +1,31 @@
+let NERDSpaceDelims=1     "Extra space around delimiters when commenting
+set history=1000          "Longer history
+
+" lets you see what your other options are when Pressing <TAB> in command mode
+set wildmenu
+" set wildmode=list:longest
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
+
+" ================ Color Scheme =====================
+" set background=dark
+" color solarized
+color molokai
+
+" ================ Turn Off Swap Files ==============
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Scrolling ========================
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
+" ================ Folds ============================
+set foldmethod=indent   "fold based on indent
+set nofoldenable        "dont fold by default
+" set foldnestmax=3       "deepest fold is 3 levels
