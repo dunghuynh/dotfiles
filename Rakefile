@@ -3,7 +3,8 @@ task :default => [
   :link
 ]
 
-VIM_FILES = %w[vimrc.before vimrc.after gvimrc.before gvimrc.after]
+VIM_FILES = %w[vimrc]
+JANUS_VIM_FILES = %w[vimrc.before vimrc.after gvimrc.before gvimrc.after]
 OTHER_FILES = %w[gitignore gitconfig rdebugrc zshrc gemrc]
 DOT_FILES = VIM_FILES + OTHER_FILES
 

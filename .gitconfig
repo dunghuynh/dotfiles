@@ -9,7 +9,7 @@
   email = huynhquangdung@gmail.com
   token = db8d5048d9f577eee3fb2b4202272ada
 [alias]
-  st = status
+  st = status -s
   ci = commit
   co = checkout
   br = branch
@@ -21,7 +21,8 @@
   filelog = log -u                  # show changes to a file
 
   # log
-  lg = log --decorate --graph --date=short --pretty=\"format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(white)%s %C(magenta) [%an]%Creset\"
+  lg = log --oneline --decorate -n 10
+  lgg = log --decorate --graph --date=short --pretty=\"format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(white)%s %C(magenta) [%an]%Creset\"
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
 
 [core]

@@ -16,6 +16,8 @@ bindkey '^R' history-incremental-search-backward
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias show_hidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
+alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

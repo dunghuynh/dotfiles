@@ -1,7 +1,6 @@
 My personal dot files
 ---
-Custom vim configs to use in conjunction with [Janus](https://github.com/carlhuda/janus) Vim Distribution.
-Works with updated Janus from January 2012
+Customized dot files to my own needs
 
 ## Installation
 * 1_ Clone the repo
@@ -15,6 +14,13 @@ $ git clone git://github.com/DungHuynh/dotfiles.git ~/dotfiles
 ```bash
 $ cd ~/dotfiles
 $ rake
+```
+
+* 3_ Run Vundle
+
+```bash
+$ mvim
+:BundleInstall
 ```
 
 ## Upgrading
