@@ -1,0 +1,17 @@
+--type-add=ruby=.rake
+--type-add=html=.erb,.slim,.haml
+--type-add=js=.coffee
+--type-add=css=.scss,.sass,.less
+--type-set=cucumber=.feature
+--ignore-dir=vendor
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=doc
+--ignore-dir=coverage
+--ignore-dir=spec/fixtures
+--ignore-dir=public/system
+--ignore-dir=.bin
+--sort-files
+--follow
+--color
+--group

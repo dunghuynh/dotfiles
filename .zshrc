@@ -48,3 +48,6 @@ source $ZSH/oh-my-zsh.sh
 
 # PATH='/desired/path/here:and/even/more/here/'
 export PATH=/usr/local/bin:$PATH
+
+# Per directory ack settings
+export ACKRC=”.ackrc”
