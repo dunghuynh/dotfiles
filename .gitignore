@@ -1,8 +1,13 @@
 # OSX       taken from: https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
 # ----------------------------------------------------------------------------------------------
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
 # Thumbnails
 ._*
+
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
@@ -11,9 +16,13 @@
 # ----------------------------------------------------------------------------------------------
 # Windows image file caches
 Thumbs.db
+ehthumbs.db
 
 # Folder config file
 Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
 # Tags      taken from: https://github.com/github/gitignore/blob/master/Global/Tags.gitignore
 # ----------------------------------------------------------------------------------------------
@@ -30,3 +39,14 @@ Session.vim
 # SASS      taken from: http://skwp.github.com/dotfiles/
 # ----------------------------------------------------------------------------------------------
 .sass-cache
+
+# SublimeText project files
+*.sublime-workspace
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+# RubyMine
+.idea/workspace.xml
