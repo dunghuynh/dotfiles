@@ -29,3 +29,27 @@ set sidescroll=1
 set foldmethod=indent   "fold based on indent
 set nofoldenable        "dont fold by default
 " set foldnestmax=3       "deepest fold is 3 levels
+
+" List chars
+set list                          " Show invisible characters
+set listchars=""                  " Reset the listchars
+set listchars=tab:·\              " a tab should display as "· ", trailing whitespace as "."
+set listchars+=trail:·            " show trailing spaces as dots
+set listchars+=extends:»          " The character to show in the last column when wrap is
+" off and the line continues beyond the right of the screen
+set listchars+=precedes:«         " The character to show in the last column when wrap is
+" off and the line continues beyond the right of the screen
+
+
+" remove trailing whitespace on save.
+" http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+" command to strip white space from any file
+nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>

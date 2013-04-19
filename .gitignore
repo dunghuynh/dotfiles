@@ -50,3 +50,18 @@ tmtags
 
 # RubyMine
 .idea/workspace.xml
+
+# Zeus
+custom_plan.rb
+zeus.json
+
+# Spring rails
+/bin/rake
+/bin/rspec
+/bin/spring
+
+# The Silver Searcher
+.agignore
+
+# Chromedriver
+/chromedriver.log

@@ -5,7 +5,7 @@ task :default => [
 
 VIM_FILES = %w[vimrc]
 JANUS_VIM_FILES = %w[vimrc.before vimrc.after gvimrc.before gvimrc.after]
-OTHER_FILES = %w[gitignore gitconfig rdebugrc zshrc gemrc ackrc]
+OTHER_FILES = %w[gitignore gitconfig rdebugrc zshrc gemrc ackrc rspec]
 DOT_FILES = VIM_FILES + OTHER_FILES
 
 desc "Create links for all dot files"

@@ -86,10 +86,17 @@ inoremap <LocalLeader>o <C-O>:ZoomWin<CR>
 noremap <C-W>+o :ZoomWin<CR>
 
 " Ack
-Bundle "ack.vim"
-map <D-F> :Ack<space>
-noremap <LocalLeader># "ayiw:Ack <C-r>a<CR>
-vnoremap <LocalLeader># "ay:Ack <C-r>a<CR>
+" Bundle 'ack.vim'
+" map <D-F> :Ack<space>
+" noremap <LocalLeader># "ayiw:Ack <C-r>a<CR>
+" vnoremap <LocalLeader># "ay:Ack <C-r>a<CR>
+
+" ag: The Silver Searcher
+Bundle 'rking/ag.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+map <D-F> :Ag -i<space>
+noremap <LocalLeader># "ayiw:Ag <C-r>a<CR>
+vnoremap <LocalLeader># "ay:Ag <C-r>a<CR>
 
 " Super Tab : In insert mode, start typing something 
 " and hit <TAB> to tab-complete based on the current context.
@@ -126,6 +133,11 @@ Bundle 'nono/vim-handlebars'
 " ColorScheme
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
+
+" Status line
+Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols = 'fancy'
+
 
 filetype plugin indent on     " required!     Automatically detect file types.
 "
@@ -249,7 +261,8 @@ color molokai
 
 if has("gui_running")
   " set guifont=Andale\ Mono:h13
-  set guifont=Menlo\ Regular:h12
+  " set guifont=Menlo\ Regular:h12
+  set guifont=Menlo\ Regular\ for\ Powerline:h12
   set antialias
   set visualbell
 endif
@@ -273,7 +286,7 @@ set laststatus=2  " Always show status line.
 " List chars
 set list                          " Show invisible characters
 set listchars=""                  " Reset the listchars
-set listchars=tab:·\              " a tab should display as "  ", trailing whitespace as "."
+set listchars=tab:·\              " a tab should display as "· ", trailing whitespace as "."
 set listchars+=trail:·            " show trailing spaces as dots
 set listchars+=extends:»          " The character to show in the last column when wrap is
 " off and the line continues beyond the right of the screen

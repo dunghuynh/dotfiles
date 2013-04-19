@@ -1,3 +1,4 @@
 " Disable redundant plugins
 " call janus#disable_plugin('fugitive')
 " call janus#disable_plugin('gundo')
+let mapleader=","
