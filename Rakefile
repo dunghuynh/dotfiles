@@ -16,7 +16,7 @@ task :link do
     if File.symlink?(new_link) || File.exist?(new_link)
       warn "Ignored: #{new_link}"
     else
-      ln_s(File.expand_path("../.#{file_name}", __FILE__ ), new_link)
+      ln_s(File.expand_path("../dots/#{file_name}", __FILE__ ), new_link)
     end
   end
 end
@@ -26,7 +26,7 @@ task :unlink do
   puts "Removing links..."
   DOT_FILES.each do |file_name|
     file = File.expand_path("~/.#{file_name}")
-    if File.symlink?(file) && File.readlink(file) == File.expand_path(".#{file_name}")
+    if File.symlink?(file) && File.readlink(file) == File.expand_path("dots/#{file_name}")
       rm File.expand_path(file)
     end
   end
