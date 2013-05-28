@@ -1,5 +1,6 @@
 set nocompatible               " be iMproved
-let mapleader=','              " Change leader key from \ to ,
+let mapleader = ','            " Change leader key from \ to ,
+let maplocalleader = ','       " Change leader key from \ to ,
 set timeoutlen=500           " Time to wait after ESC (default 1000 causes an annoying delay)
 
 
@@ -11,7 +12,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-
 
 " ============================= My Bundles here {{{
 
@@ -122,12 +122,13 @@ Bundle 'tsaleh/vim-align'
 " LANGUAGES
 
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
+Bundle 'groenewege/vim-less'
+Bundle 'slim-template/vim-slim'
 Bundle 'nono/vim-handlebars'
 
 " ColorScheme
@@ -163,7 +164,7 @@ set mouse=a           " enable mouse in GUI mode
 set autowrite  " Writes on make/shell commands
 set autoread
 
-set clipboard+=unnamed  " Yanks go on clipboard instead.
+" set clipboard+=unnamed  " Yanks go on clipboard instead.
 set pastetoggle=<F10> "  toggle between paste and normal: for 'safer' pasting from keyboard
 set tags=./tags;$HOME " walk directory tree upto $HOME looking for tags
 
@@ -248,6 +249,21 @@ set cindent
 set cinoptions=:s,ps,ts,cs
 set cinwords=if,else,while,do,for,switch,case
 syntax on         " enable syntax
+
+
+" remove trailing whitespace on save.
+" http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+" command to strip white space from any file
+nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
+
+
 " ================ }}}
 
 
@@ -298,12 +314,14 @@ set foldenable " Turn on folding
 set foldmethod=syntax " Fold on the syntax/indent/marker
 set foldlevel=1 " Don't autofold anything (but I can still fold manually)
 " set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
+nnoremap <space> @=((foldclosed(line(".")) < 0) ? 'zc' : 'zO')<cr>
 
 " set mouse-=a   " Disable mouse
 " set mousehide  " Hide mouse after chars typed
 
 set splitbelow
 set splitright
+
 
 " ================ }}}
 
@@ -338,6 +356,10 @@ nmap <leader>L mQgewvu`Q
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
 map <Up> gk
+
+" Escape is too far
+imap jj <esc>
+imap jk <esc>
 
 if has("gui_macvim") && has("gui_running")
   " Map command-[ and command-] to indenting or outdenting
@@ -409,6 +431,13 @@ nmap <silent> <C-l> <C-W><C-l>
 " screwing up folding when switching between windows.
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
+if has("gui_macvim") && has("gui_running")
+  set noballooneval " Disable anoying mouse over tooltip
+  " verb set ballooneval?
+  set balloondelay=100000
+  setlocal balloonexpr=
+endif
 
 
 " ================ }}}

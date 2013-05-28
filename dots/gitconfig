@@ -25,6 +25,10 @@
   lgg = log --decorate --graph --date=short --pretty=\"format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(white)%s %C(magenta) [%an]%Creset\"
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
 
+  # stash
+  sshow = "!f() { git stash show stash^{/$*} -p; }; f"
+  sapply = "!f() { git stash apply stash^{/$*}; }; f"
+
 [advice]
   statusHints = false
 [format]
