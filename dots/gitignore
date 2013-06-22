@@ -65,3 +65,6 @@ zeus.json
 
 # Chromedriver
 /chromedriver.log
+
+# RVM
+.ruby-gemset
