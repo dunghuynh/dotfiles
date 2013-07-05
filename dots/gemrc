@@ -5,3 +5,5 @@
 :backtrace: false
 :verbose: true
 gem: --no-ri --no-rdoc
+:sources:
+- https://rubygems.org/
