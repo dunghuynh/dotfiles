@@ -3,27 +3,41 @@ let mapleader = ','            " Change leader key from \ to ,
 let maplocalleader = ','       " Change leader key from \ to ,
 set timeoutlen=500           " Time to wait after ESC (default 1000 causes an annoying delay)
 
+" ============================= NeoBundle {{{
 
-filetype off                   " required!
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call neobundle#rc(expand('~/.vim/bundle/'))
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+" ======== }}}
 
 " ============================= My Bundles here {{{
 
 " original repos on github
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-endwise'
+" NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'tpope/vim-endwise'
 
 " Vim-surround
 " press cs'<b> to change 'hello' to <b>hello</b>
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
 
 " Fugitive : Git support
 " Adds pervasive git support to git directories in vim. 
@@ -36,35 +50,35 @@ Bundle 'tpope/vim-unimpaired'
 " :Git rm %       :Gremove : Delete the current file and the corresponding Vim buffer
 " :Git mv %       :Gmove   : Rename the current file and the corresponding Vim buffer
 " :Git blame %    :Gblame  : Git blame
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 
 " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+" NeoBundle 'L9'
+" NeoBundle 'FuzzyFinder'
 
 " Command-T : Fast file navigation for VIM
-" Bundle 'git://git.wincent.com/command-t.git'
+" NeoBundle 'git://git.wincent.com/command-t.git'
 " nnoremap // :TComment<CR>
 " vnoremap // :TComment<CR>
 
 " CtrlP : Command Fuzzy file, buffer, mru and tag finder. Replaces Command-T
-Bundle 'kien/ctrlp.vim'
+NeoBundle 'kien/ctrlp.vim'
 map <D-t> CtrlP<CR>
 imap <D-t> <ESC>:CtrlP<CR>
 
 " NERDTree
-Bundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
 
 " Syntastic : Syntastic is a syntax checking plugin that runs buffers through 
 " external syntax checkers as they are saved and opened. If syntax errors are 
 " detected, the user is notified and is happy because they didn't have to 
 " compile their code or execute their script to find them.
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
 
 " NERDCommenter
-Bundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1     "Extra space around delimiters when commenting
 if has("gui_macvim") && has("gui_running")
   map <D-/> <plug>NERDCommenterToggle<CR>
@@ -75,24 +89,24 @@ else
 endif
 
 " Tagbar : Tagbar is a vim plugin for browsing the tags of source code files.
-Bundle 'majutsushi/tagbar'
+NeoBundle 'majutsushi/tagbar'
 
 
 " Zoomwin
-Bundle "ZoomWin"
+NeoBundle "ZoomWin"
 noremap <LocalLeader>o :ZoomWin<CR>
 vnoremap <LocalLeader>o <C-C>:ZoomWin<CR>
 inoremap <LocalLeader>o <C-O>:ZoomWin<CR>
 noremap <C-W>+o :ZoomWin<CR>
 
 " Ack
-" Bundle 'ack.vim'
+" NeoBundle 'ack.vim'
 " map <D-F> :Ack<space>
 " noremap <LocalLeader># "ayiw:Ack <C-r>a<CR>
 " vnoremap <LocalLeader># "ay:Ack <C-r>a<CR>
 
 " ag: The Silver Searcher
-Bundle 'rking/ag.vim'
+NeoBundle 'rking/ag.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 map <D-F> :Ag -i<space>
 noremap <LocalLeader># "ayiw:Ag <C-r>a<CR>
@@ -100,57 +114,60 @@ vnoremap <LocalLeader># "ay:Ag <C-r>a<CR>
 
 " Super Tab : In insert mode, start typing something 
 " and hit <TAB> to tab-complete based on the current context.
-Bundle 'ervandew/supertab'
+NeoBundle 'ervandew/supertab'
 
 " vim-buffergator
 " <Leader>b
-Bundle 'jeetsukumaran/vim-buffergator'
+NeoBundle 'jeetsukumaran/vim-buffergator'
 
 " Matchit
-Bundle 'edsono/vim-matchit'
+NeoBundle 'edsono/vim-matchit'
 
 " Gundo.vim visualize your Vim undo tree
-Bundle 'sjl/gundo.vim'
+NeoBundle 'sjl/gundo.vim'
 nnoremap <F6> :GundoToggle<CR>
 
 " Rename2
-Bundle 'Rename2'
+NeoBundle 'Rename2'
 
 " Align
-Bundle 'tsaleh/vim-align'
+NeoBundle 'tsaleh/vim-align'
 
 " LANGUAGES
 
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-cucumber'
-Bundle 'groenewege/vim-less'
-Bundle 'slim-template/vim-slim'
-Bundle 'nono/vim-handlebars'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'nono/vim-handlebars'
 
 " ColorScheme
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tomasr/molokai'
 
 " Status line
-Bundle 'Lokaltog/vim-powerline'
+NeoBundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'fancy'
 
 
-filetype plugin indent on     " required!     Automatically detect file types.
+" ================ }}}
+
+" ============================= End NeoBundle {{{
+
+filetype plugin indent on     " Required!
+
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
+" Installation check.
+NeoBundleCheck
 " ================ }}}
 
 
