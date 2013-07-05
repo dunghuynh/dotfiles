@@ -62,9 +62,24 @@ NeoBundle 'tpope/vim-fugitive'
 " vnoremap // :TComment<CR>
 
 " CtrlP : Command Fuzzy file, buffer, mru and tag finder. Replaces Command-T
-NeoBundle 'kien/ctrlp.vim'
-map <D-t> CtrlP<CR>
-imap <D-t> <ESC>:CtrlP<CR>
+" NeoBundle 'kien/ctrlp.vim'
+" map <D-t> CtrlP<CR>
+" imap <D-t> <ESC>:CtrlP<CR>
+
+" Unite
+NeoBundle 'Shougo/unite.vim'
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <C-p> :<C-u>Unite -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru -start-insert -quick-match file_mru<cr>
+" nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+
+" nnoremap <C-p> :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec<cr>
+" nnoremap <space>/ :Unite ag:.<cr>
+" nnoremap <space>s :Unite -quick-match -auto-preview buffer<cr>
 
 " NERDTree
 NeoBundle 'scrooloose/nerdtree'
@@ -93,11 +108,11 @@ NeoBundle 'majutsushi/tagbar'
 
 
 " Zoomwin
-NeoBundle "ZoomWin"
-noremap <LocalLeader>o :ZoomWin<CR>
-vnoremap <LocalLeader>o <C-C>:ZoomWin<CR>
-inoremap <LocalLeader>o <C-O>:ZoomWin<CR>
-noremap <C-W>+o :ZoomWin<CR>
+" NeoBundle "ZoomWin"
+" noremap <LocalLeader>o :ZoomWin<CR>
+" vnoremap <LocalLeader>o <C-C>:ZoomWin<CR>
+" inoremap <LocalLeader>o <C-O>:ZoomWin<CR>
+" noremap <C-W>+o :ZoomWin<CR>
 
 " Ack
 " NeoBundle 'ack.vim'
