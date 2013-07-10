@@ -1,3 +1,7 @@
+let s:is_windows = has('win32') || has('win64')
+let s:is_cygwin = has('win32unix')
+let s:is_macvim = has('gui_macvim')
+
 let NERDSpaceDelims=1     "Extra space around delimiters when commenting
 set history=1000          "Longer history
 
@@ -21,20 +25,20 @@ set nobackup
 set nowb
 
 " ================ Scrolling ========================
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
+set scrolloff=1         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=7
 set sidescroll=1
 
 " ================ Folds ============================
-set foldmethod=indent   "fold based on indent
-set nofoldenable        "dont fold by default
+" set foldmethod=indent   "fold based on indent
+" set nofoldenable        "dont fold by default
 " set foldnestmax=3       "deepest fold is 3 levels
 
 " List chars
 set list                          " Show invisible characters
 set listchars=""                  " Reset the listchars
 set listchars=tab:·\              " a tab should display as "· ", trailing whitespace as "."
-set listchars+=trail:·            " show trailing spaces as dots
+set listchars+=trail:•            " show trailing spaces as dots
 set listchars+=extends:»          " The character to show in the last column when wrap is
 " off and the line continues beyond the right of the screen
 set listchars+=precedes:«         " The character to show in the last column when wrap is
@@ -50,6 +54,65 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,js,scss,css autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 " command to strip white space from any file
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
+
+" === Key mapping {{{
+  " smash escape
+  inoremap jk <esc>
+  inoremap kj <esc>
+
+  " Make Control-direction switch between windows (like C-W h, etc)
+  nmap <silent> <C-k> <C-W><C-k>
+  nmap <silent> <C-j> <C-W><C-j>
+  nmap <silent> <C-h> <C-W><C-h>
+  nmap <silent> <C-l> <C-W><C-l>
+
+  " change cursor position in insert mode
+  inoremap <C-h> <left>
+  inoremap <C-l> <right>
+
+  " sane regex {{{
+    " http://learnvimscriptthehardway.stevelosh.com/chapters/31.html
+    nnoremap / /\v
+    vnoremap / /\v
+    nnoremap ? ?\v
+    vnoremap ? ?\v
+    cnoremap s/ s/\v
+  "}}}
+
+  " show fold level {{{
+    nnoremap zr zr:echo &foldlevel<cr>
+    nnoremap zm zm:echo &foldlevel<cr>
+    nnoremap zR zR:echo &foldlevel<cr>
+    nnoremap zM zM:echo &foldlevel<cr>
+  " }}}
+
+  " auto center {{{
+    nnoremap <silent> n nzz
+    nnoremap <silent> N Nzz
+    nnoremap <silent> * *zz
+    nnoremap <silent> # #zz
+    nnoremap <silent> g* g*zz
+    nnoremap <silent> g# g#zz
+    nnoremap <silent> <C-o> <C-o>zz
+    nnoremap <silent> <C-i> <C-i>zz
+  "}}}
+
+" }}}
+
+" === Plugins {{{
+  " tomtom/tcomment_vim {{{
+    map <D-/> gccj
+    vmap <D-/> gc
+    imap <D-/> <Esc>gccj
+  " }}}
+
+  " scrooloose/nerdtree {{{
+    nnoremap <F2> :NERDTreeToggle<CR>
+    nnoremap <F3> :NERDTreeFind<CR>
+  " }}}
+
+" === }}}
+

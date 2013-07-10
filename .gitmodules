@@ -1,0 +1,9 @@
+[submodule "dots/janus/vim-signature"]
+	path = dots/janus/vim-signature
+	url = https://github.com/kshenoy/vim-signature
+[submodule "dots/janus/tcomment_vim"]
+	path = dots/janus/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
+[submodule "dots/janus/vim-signify"]
+	path = dots/janus/vim-signify
+	url = https://github.com/mhinz/vim-signify
