@@ -65,7 +65,7 @@ let g:mapleader = ','
   call add(s:settings.plugin_groups, 'language')
   call add(s:settings.plugin_groups, 'javascript')
   call add(s:settings.plugin_groups, 'ruby')
-  " call add(s:settings.plugin_groups, 'python')
+  call add(s:settings.plugin_groups, 'python')
   call add(s:settings.plugin_groups, 'scm')
   call add(s:settings.plugin_groups, 'editing')
   call add(s:settings.plugin_groups, 'visual')
@@ -676,9 +676,9 @@ let g:mapleader = ','
   " Folding
   set foldenable " Turn on folding
   set foldmethod=syntax " Fold on the syntax/indent/marker
-  set foldlevel=1 " Don't autofold anything (but I can still fold manually)
+  set foldlevel=99 " Don't autofold anything (but I can still fold manually)
   " set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
-  " nnoremap <space> @=((foldclosed(line(".")) < 0) ? 'zc' : 'zO')<cr>
+  nnoremap <space><space> @=((foldclosed(line(".")) < 0) ? 'zc' : 'zO')<cr>
 
   set pastetoggle=<F10> "  toggle between paste and normal: for 'safer' pasting from keyboard
 
@@ -801,8 +801,8 @@ let g:mapleader = ','
   nmap <leader>L mQgewvu`Q
 
   " smash escape
-  " inoremap jk <esc>
-  " inoremap kj <esc>
+  inoremap jk <esc>
+  inoremap kj <esc>
 
   if has("gui_macvim") && has("gui_running")
     " Map command-[ and command-] to indenting or outdenting
@@ -903,11 +903,15 @@ let g:mapleader = ','
   " }}}
 
   " screen line scroll
-  " Map the arrow keys to be based on display lines, not physical lines
-  map <Down> gj
-  map <Up> gk
+  " Map the jk arrow keys to be based on display lines, not physical lines
   nnoremap <silent> j gj
   nnoremap <silent> k gk
+
+  " remap arrow keys
+  " nnoremap <down> :bprev<CR>
+  " nnoremap <up> :bnext<CR>
+  nnoremap <left> :tabnext<CR>
+  nnoremap <right> :tabprev<CR>
 
   " auto center {{{
     nnoremap <silent> n nzz
@@ -932,5 +936,13 @@ let g:mapleader = ','
   if neobundle#is_sourced('vim-dispatch')
     nnoremap <leader>tag :Dispatch ctags -R<cr>
   endif
+
+  " reselect last paste
+  nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+  " find current word in quickfix
+  nnoremap <leader>fw :execute "vimgrep ".expand("<cword>")." %"<cr>:copen<cr>
+  " find last search in quickfix
+  nnoremap <leader>ff :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
 
 " ================ }}}
