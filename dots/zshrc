@@ -45,10 +45,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # export PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/mysql/bin:/Users/huynh/.rvm/bin
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 # PATH='/desired/path/here:and/even/more/here/'
-export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/bin
 
 # Per directory ack settings
 export ACKRC=”.ackrc”
@@ -56,7 +56,7 @@ export ACKRC=”.ackrc”
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$PATH:/usr/local/heroku/bin"
 
 # Default editor
 export EDITOR=mvim
