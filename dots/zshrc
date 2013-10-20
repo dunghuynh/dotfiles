@@ -61,5 +61,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Default editor
 export EDITOR=mvim
 
+# Postgres
+export PGHOST=localhost
+
 # Bundle open gem
 export BUNDLER_EDITOR=mvim
