@@ -48,7 +48,7 @@ source $ZSH/oh-my-zsh.sh
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 # PATH='/desired/path/here:and/even/more/here/'
-export PATH=$PATH:/usr/local/bin
+export PATH=/usr/local/bin:$PATH
 
 # Per directory ack settings
 export ACKRC=”.ackrc”

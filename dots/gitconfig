@@ -7,7 +7,6 @@
 [user]
   name = Dung Huynh
   email = huynhquangdung@gmail.com
-  token = db8d5048d9f577eee3fb2b4202272ada
 [alias]
   st = status -s
   ci = commit
