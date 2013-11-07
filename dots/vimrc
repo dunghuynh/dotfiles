@@ -71,7 +71,7 @@ let g:mapleader = ','
   call add(s:settings.plugin_groups, 'visual')
   call add(s:settings.plugin_groups, 'indents')
   call add(s:settings.plugin_groups, 'navigation')
-  call add(s:settings.plugin_groups, 'unite')
+  " call add(s:settings.plugin_groups, 'unite')
   call add(s:settings.plugin_groups, 'autocomplete')
   call add(s:settings.plugin_groups, 'misc')
   if s:is_windows
@@ -111,14 +111,14 @@ let g:mapleader = ','
     "   let g:bufferline_echo=0
     "   let g:bufferline_rotate=1
     " "}}}
-    NeoBundle 'bling/vim-airline' "{{{
-      " powerline symbols
-      let g:airline_left_sep = ''
-      let g:airline_right_sep = ''
-      let g:airline_fugitive_prefix = ' '
-      let g:airline_readonly_symbol = ''
-      let g:airline_linecolumn_prefix = ' '
-    "}}}
+    " NeoBundle 'bling/vim-airline' "{{{
+    "   " powerline symbols
+    "   let g:airline_left_sep = ''
+    "   let g:airline_right_sep = ''
+    "   let g:airline_fugitive_prefix = ' '
+    "   let g:airline_readonly_symbol = ''
+    "   let g:airline_linecolumn_prefix = ' '
+    " "}}}
     NeoBundle 'tpope/vim-repeat'
     NeoBundle 'tpope/vim-dispatch'
     NeoBundle 'tpope/vim-eunuch'
@@ -451,6 +451,10 @@ let g:mapleader = ','
       " let g:junkfile#directory=expand("~/.vim/.cache/junk")
       " nnoremap <silent> [unite]j :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
     " "}}}
+  else
+    NeoBundle 'kien/ctrlp.vim'
+    map <D-t> CtrlP<CR>
+    imap <D-t> <ESC>:CtrlP<CR>
   endif "}}}
 
   if count(s:settings.plugin_groups, 'visual') "{{{
@@ -581,8 +585,8 @@ let g:mapleader = ','
 
   if has("gui_running")
     " set guifont=Andale\ Mono:h13
-    " set guifont=Menlo\ Regular:h12
-    set guifont=Menlo\ Regular\ for\ Powerline:h12
+    set guifont=Menlo\ Regular:h12
+    " set guifont=Menlo\ Regular\ for\ Powerline:h12
     set antialias
     set visualbell
   endif
