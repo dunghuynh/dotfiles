@@ -57,7 +57,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/heroku/bin"
 
 # Default editor
-export EDITOR=mvim
+export EDITOR=vim
 
 # Postgres
 export PGHOST=localhost

@@ -114,5 +114,25 @@ nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
     nnoremap <F3> :NERDTreeFind<CR>
   " }}}
 
+  " kien/ctrlp {{{
+    " ignore npm and bower directories for ctrlp
+    let g:ctrlp_custom_ignore = {
+          \ 'dir': '\v[\/](node_modules|bower_components)$'
+          \ }
+    " hide statusline in ctrlp buffer
+    let g:ctrlp_buffer_func = {
+          \ 'enter': 'HideStatusLine',
+          \ 'exit':  'ShowStatusLine',
+          \ }
+
+    func! HideStatusLine()
+      set laststatus=0
+    endfunc
+
+    func! ShowStatusLine()
+      set laststatus=2
+    endfunc
+  " }}}
+
 " === }}}
 
