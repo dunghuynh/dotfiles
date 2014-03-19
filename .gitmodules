@@ -7,3 +7,6 @@
 [submodule "dots/janus/vim-signify"]
 	path = dots/janus/vim-signify
 	url = https://github.com/mhinz/vim-signify
+[submodule "dots/janus/vim-jade"]
+	path = dots/janus/vim-jade
+	url = https://github.com/digitaltoad/vim-jade
