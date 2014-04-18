@@ -54,7 +54,7 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python,js,scss,css autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,js,scss,css,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 " command to strip white space from any file
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 
@@ -75,11 +75,11 @@ nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 
   " sane regex {{{
     " http://learnvimscriptthehardway.stevelosh.com/chapters/31.html
-    nnoremap / /\v
-    vnoremap / /\v
-    nnoremap ? ?\v
-    vnoremap ? ?\v
-    cnoremap s/ s/\v
+    " nnoremap / /\v
+    " vnoremap / /\v
+    " nnoremap ? ?\v
+    " vnoremap ? ?\v
+    " cnoremap s/ s/\v
   "}}}
 
   " show fold level {{{
@@ -132,6 +132,10 @@ nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
     func! ShowStatusLine()
       set laststatus=2
     endfunc
+  " }}}
+
+  " digitaltoad/vim-jade {{{
+    autocmd BufNewFile,BufReadPost *.jade.html set filetype=jade
   " }}}
 
 " === }}}

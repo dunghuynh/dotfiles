@@ -89,6 +89,9 @@ export PGHOST=localhost
 # Postgres App
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
+# npm bin
+export PATH="$PATH:./node_modules/.bin"
+
 # Bundle open gem
 export BUNDLER_EDITOR=mvim
 
