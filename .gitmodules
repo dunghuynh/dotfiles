@@ -10,3 +10,6 @@
 [submodule "dots/janus/vim-jade"]
 	path = dots/janus/vim-jade
 	url = https://github.com/digitaltoad/vim-jade
+[submodule "dots/janus/vim-emblem"]
+	path = dots/janus/vim-emblem
+	url = https://github.com/heartsentwined/vim-emblem
