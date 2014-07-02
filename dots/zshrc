@@ -19,6 +19,7 @@ bindkey '^R' history-incremental-search-backward
 alias show_hidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias bower='noglob bower'
+alias be='bundle exec'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -55,10 +56,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-# export PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/mysql/bin:/Users/huynh/.rvm/bin
-
-
 # PATH='/desired/path/here:and/even/more/here/'
 export PATH=/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -66,7 +63,7 @@ export PATH=/usr/local/bin:$PATH
 # Per directory ack settings
 # export ACKRC=”.ackrc”
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi # enable shims and autocompletion for rbenv
 
 ### Added by the Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
@@ -96,6 +93,15 @@ export PATH="$PATH:./node_modules/.bin"
 # Bundle open gem
 export BUNDLER_EDITOR=mvim
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+# JAVA SDK
+export JAVA_HOME=$(/usr/libexec/java_home)
 
-[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # This loads nvm
+# rails 4 secret key for production
+export SECRET_KEY_BASE='5ca4aafaf356e2961b81e67fa69bea64e7be87d75c0aec8e1bf15b8abf1edf019e791b535eb338f0f99f0fc0d5969dff0963dd5e370706b5471619981f2a0dc7'
+
+# Quoine
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# direnv
+eval "$(direnv hook zsh)"
