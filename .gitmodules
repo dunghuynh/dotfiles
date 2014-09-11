@@ -13,3 +13,9 @@
 [submodule "dots/janus/vim-emblem"]
 	path = dots/janus/vim-emblem
 	url = https://github.com/heartsentwined/vim-emblem
+[submodule "dots/janus/vimux"]
+	path = dots/janus/vimux
+	url = https://github.com/benmills/vimux
+[submodule "dots/janus/Dockerfile.vim"]
+	path = dots/janus/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
