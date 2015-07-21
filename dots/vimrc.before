@@ -2,3 +2,4 @@
 call janus#disable_plugin('nerdcommenter')
 
 let mapleader=","
+let g:go_fmt_autosave=0

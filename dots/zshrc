@@ -105,4 +105,18 @@ export LANG=en_US.UTF-8
 export NVM_DIR="/Users/huynh/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export DOCKER_HOST='tcp://192.168.59.103:2375'
+export DOCKER_HOST='tcp://192.168.59.103:2376'
+export DOCKER_CERT_PATH=/Users/huynh/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+export AWS_ACCESS_KEY=AKIAIOV7GZIXBWNSWHBQ
+export AWS_SECRET_KEY=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
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.1.0/libexec"
+export EC2_URL=https://ec2.ap-southeast-1.amazonaws.com
+
+export GOPATH=/usr/local/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/bin
