@@ -26,7 +26,7 @@ fi
 export PGHOST=localhost
 
 # Postgres App
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 # npm bin
 export PATH="$PATH:./node_modules/.bin"
@@ -62,3 +62,5 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/bin
+export ANDROID_HOME=/Users/$USER/Library/Android/sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
