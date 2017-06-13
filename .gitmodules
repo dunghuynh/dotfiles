@@ -19,3 +19,6 @@
 [submodule "dots/janus/Dockerfile.vim"]
 	path = dots/janus/Dockerfile.vim
 	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "dots/janus/typescript-vim"]
+	path = dots/janus/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
