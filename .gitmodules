@@ -22,3 +22,6 @@
 [submodule "dots/janus/typescript-vim"]
 	path = dots/janus/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "modules/antigen"]
+	path = modules/antigen
+	url = https://github.com/zsh-users/antigen.git
