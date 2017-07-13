@@ -111,7 +111,6 @@
 
 " System Settings  ----------------------------------------------------------{{{
 
-  source ~/.local.vim
 " Neovim Settings
 
   highlight Comment cterm=italic
@@ -291,7 +290,7 @@
 
 " Javascript ----------------------------------------------------------------{{{
 
-  " let g:neoformat_enabled_javascript = ['prettier']
+  let g:neoformat_enabled_javascript = ['prettier']
   let g:neomake_javascript_enabled_makers = ['eslint']
 
   let g:jsx_ext_required = 1
@@ -320,6 +319,8 @@
   " map <silent> <leader>gt :TSType <cr>
   map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
   " autocmd FileType typescript setl omnifunc=TSComplete
+  autocmd BufWritePre *.js silent Neoformat
+
   let g:nvim_typescript#kind_symbols = {
       \ 'keyword': 'keyword',
       \ 'class': '',
