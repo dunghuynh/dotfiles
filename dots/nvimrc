@@ -84,7 +84,7 @@
   call dein#add('ujihisa/neco-look')
   call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
   call dein#add('zchee/deoplete-jedi')
-  call dein#add('junegunn/limelight.vim')
+  " call dein#add('junegunn/limelight.vim')
   call dein#add('Konfekt/FastFold')
   call dein#add('mhinz/vim-sayonara')
   call dein#add('mattn/webapi-vim')
@@ -92,7 +92,7 @@
   call dein#add('terryma/vim-multiple-cursors')
   " call dein#add('Shougo/vimfiler.vim')
   " call dein#add('Shougo/unite.vim')
-  call dein#add('sjl/vitality.vim')
+  call dein#add('sjl/vitality.vim') "(Vit)ality is a plugin that makes (V)im play nicely with (i)Term 2 and (t)mux.
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 
@@ -173,6 +173,10 @@
 
 " System mappings  ----------------------------------------------------------{{{
 
+" Paste from yanked register
+" noremap p "0p
+" noremap P "0P
+
 " Map the leader key to SPACE
   let mapleader = "\<SPACE>"
 
@@ -215,10 +219,10 @@
   inoremap <c-f> <c-x><c-f>
 " Copy to osx clipboard
   vnoremap <C-c> "*y<CR>
-  " vnoremap y "*y<CR>
-  " nnoremap Y "*Y<CR>
-  " vnoremap y myy`y
-  " vnoremap Y myY`y
+  vnoremap y "*y<CR>
+  nnoremap Y "*Y<CR>
+  vnoremap y myy`y
+  vnoremap Y myY`y
   let g:multi_cursor_next_key='<C-n>'
   let g:multi_cursor_prev_key='<C-p>'
   let g:multi_cursor_skip_key='<C-x>'
@@ -259,7 +263,7 @@
 " join
   nmap <silent> <leader>j :join<CR>
 " open gitx
-  nmap <silent> <leader>x :! gitx<CR>
+  nmap <silent> <leader>g :! gitx<CR>
 
 "}}}"
 
@@ -535,7 +539,7 @@
 " Code formatting -----------------------------------------------------------{{{
 
 " ,f to format code, requires formatters: read the docs
-  noremap <silent> <leader>f :Neoformat<CR>
+  noremap <silent> <leader>a :Neoformat<CR>
 
 " }}}
 
@@ -708,7 +712,7 @@
   nnoremap <silent> <leader>h :Denite  help<CR>
   " nnoremap <silent> <leader>c :Denite colorscheme<CR>
   nnoremap <silent> <leader>b :Denite buffer<CR>
-  nnoremap <silent> <leader>a :Denite grep:::!<CR>
+  nnoremap <silent> <leader>f :Denite grep:::!<CR>
   nnoremap <silent> <leader>u :call dein#update()<CR>
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
