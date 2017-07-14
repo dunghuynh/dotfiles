@@ -78,9 +78,9 @@
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('Shougo/neco-vim')
   call dein#add('Shougo/neoinclude.vim')
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('honza/vim-snippets')
+  " call dein#add('Shougo/neosnippet.vim')
+  " call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('honza/vim-snippets')
   call dein#add('ujihisa/neco-look')
   call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
   call dein#add('zchee/deoplete-jedi')
@@ -128,7 +128,7 @@
   set timeoutlen=500
   set ttimeoutlen=100
   set termguicolors
-  set clipboard+=unnamedplus
+  set clipboard=unnamed
   set mouse=a
   set pastetoggle=<f6>
   set nopaste
@@ -319,7 +319,7 @@
   " map <silent> <leader>gt :TSType <cr>
   map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
   " autocmd FileType typescript setl omnifunc=TSComplete
-  autocmd BufWritePre *.js silent Neoformat
+  autocmd BufWritePre *.js,*.rb silent Neoformat
 
   let g:nvim_typescript#kind_symbols = {
       \ 'keyword': 'keyword',
