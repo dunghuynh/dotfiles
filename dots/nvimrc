@@ -130,7 +130,7 @@
   set timeoutlen=500
   set ttimeoutlen=100
   set termguicolors
-  set clipboard=unnamedplus
+  " set clipboard=unnamedplus
   set mouse=a
   set pastetoggle=<f6>
   set nopaste
@@ -175,8 +175,8 @@
 " System mappings  ----------------------------------------------------------{{{
 
 " Paste from yanked register
-" noremap p "0p
-" noremap P "0P
+" noremap p "*p
+" noremap P "*P
 
 " Map the leader key to SPACE
   let mapleader = "\<SPACE>"
@@ -265,6 +265,18 @@
   nmap <silent> <leader>j :join<CR>
 " open gitx
   nmap <silent> <leader>g :! gitx<CR>
+  " nmap <silent> <leader>c "+yy
+  " vmap <silent> <leader>c "+y
+
+  " Move line
+  nnoremap <M-k> :m-2<CR>
+  nnoremap <M-j> :m+<CR>
+  inoremap <M-k> <Esc>:m-2<CR>
+  inoremap <M-j> <Esc>:m+<CR>
+
+  " Move to begining and end of line
+  inoremap <C-h> <Esc>A
+  inoremap <C-l> <Esc>I
 
 "}}}"
 
