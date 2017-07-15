@@ -128,7 +128,7 @@
   set timeoutlen=500
   set ttimeoutlen=100
   set termguicolors
-  set clipboard=unnamed
+  set clipboard=unnamedplus
   set mouse=a
   set pastetoggle=<f6>
   set nopaste
