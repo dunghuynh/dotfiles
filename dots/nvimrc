@@ -130,7 +130,7 @@
   set timeoutlen=500
   set ttimeoutlen=100
   set termguicolors
-  set clipboard=unnamedplus
+  " set clipboard=unnamedplus
   set mouse=a
   set pastetoggle=<f6>
   set nopaste
@@ -175,8 +175,8 @@
 " System mappings  ----------------------------------------------------------{{{
 
 " Paste from yanked register
-" noremap p "0p
-" noremap P "0P
+" noremap p "*p
+" noremap P "*P
 
 " Map the leader key to SPACE
   let mapleader = "\<SPACE>"
@@ -238,6 +238,7 @@
   vnoremap <c-_> :Commentary<cr>
   nnoremap <c-_> :Commentary<cr>
   nnoremap <silent> <esc> :noh<cr>
+
   nnoremap <leader>e :call <SID>SynStack()<CR>
   function! <SID>SynStack()
     if !exists("*synstack")
@@ -245,13 +246,6 @@
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
   endfunc
-
-  function! s:PlaceholderImgTag(size)
-    let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
-    let [width,height] = split(a:size, 'x')
-    execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
-    endfunction
-  command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
 
 " vim-test
   let test#strategy = "vimux"
@@ -262,9 +256,57 @@
 " zoom
   nmap <silent> <leader>o :tab split<CR>
 " join
-  nmap <silent> <leader>j :join<CR>
+  nmap <A-j> :join<CR>
 " open gitx
   nmap <silent> <leader>g :! gitx<CR>
+  " nmap <silent> <leader>c "+yy
+  " vmap <silent> <leader>c "+y
+
+  " Move line
+  " nnoremap <M-k> :m-2<CR>
+  " nnoremap <M-j> :m+<CR>
+  " inoremap <M-k> <Esc>:m-2<CR>
+  " inoremap <M-j> <Esc>:m+<CR>
+
+  " Move to begining and end of line
+  " inoremap <C-h> <Esc>I
+  " inoremap <C-l> <Esc>A
+
+  " From Janus, indenting
+  vmap <A-]> >gv
+  vmap <A-[> <gv
+
+  nmap <A-]> >>
+  nmap <A-[> <<
+
+  omap <A-]> >>
+  omap <A-[> <<
+
+  imap <A-]> <Esc>>>i
+  imap <A-[> <Esc><<i
+
+  " Bubble single lines
+  nmap <A-Up> [e
+  nmap <A-Down> ]e
+  nmap <A-k> [e
+  nmap <A-j> ]e
+
+  " Bubble multiple lines
+  vmap <A-Up> [egv
+  vmap <A-Down> ]egv
+  vmap <A-k> [egv
+  vmap <A-j> ]egv
+
+  " Adjust viewports to the same size
+  map <Leader>= <C-w>=
+
+  " upper/lower first char of word
+  nmap <leader>U mQgewvU`Q
+  nmap <leader>L mQgewvu`Q
+
+  " Traverse text in insert mode
+  inoremap <A-h> <C-o>b
+  inoremap <A-l> <C-o>w
 
 "}}}"
 
