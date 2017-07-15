@@ -237,6 +237,8 @@
   " vnoremap <c-/> :TComment<cr>
   vnoremap <c-_> :Commentary<cr>
   nnoremap <c-_> :Commentary<cr>
+  inoremap <c-_> <esc>:Commentary<cr>
+
   nnoremap <silent> <esc> :noh<cr>
 
   nnoremap <leader>e :call <SID>SynStack()<CR>
