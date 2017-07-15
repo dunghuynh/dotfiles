@@ -9,6 +9,7 @@ alias show_hidden="defaults write com.apple.finder AppleShowAllFiles TRUE && kil
 alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 alias bower='noglob bower'
+# alias nvim='reattach-to-user-namespace -l nvim'
 alias vim='nvim'
 alias vi='nvim'
 alias mux='tmuxinator'
@@ -81,11 +82,9 @@ export NVM_BREW="/usr/local/opt/nvm/"
 # }
 
 eval "$(rbenv init -)"
-
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/bin"
 export PATH="./bin:$PATH"
-
+export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="`yarn global bin`:$PATH"
-
 
