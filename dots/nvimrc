@@ -46,7 +46,7 @@
   call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
   call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
   call dein#add('tmux-plugins/vim-tmux')
-  call dein#add('jiangmiao/auto-pairs')
+  " call dein#add('jiangmiao/auto-pairs')
   call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
@@ -237,6 +237,8 @@
   " vnoremap <c-/> :TComment<cr>
   vnoremap <c-_> :Commentary<cr>
   nnoremap <c-_> :Commentary<cr>
+  inoremap <c-_> <esc>:Commentary<cr>
+
   nnoremap <silent> <esc> :noh<cr>
 
   nnoremap <leader>e :call <SID>SynStack()<CR>
