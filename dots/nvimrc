@@ -292,7 +292,6 @@
 
 " Javascript ----------------------------------------------------------------{{{
 
-  let g:neoformat_enabled_javascript = ['prettier']
   let g:neomake_javascript_enabled_makers = ['eslint']
 
   let g:jsx_ext_required = 0
@@ -321,7 +320,6 @@
   " map <silent> <leader>gt :TSType <cr>
   map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
   " autocmd FileType typescript setl omnifunc=TSComplete
-  autocmd BufWritePre *.js,*.rb silent Neoformat
 
   let g:nvim_typescript#kind_symbols = {
       \ 'keyword': 'keyword',
@@ -811,7 +809,11 @@
 " Linting -------------------------------------------------------------------{{{
 
   autocmd! BufWritePost * Neomake
+  autocmd BufWritePre *.js,*.rb Neoformat
   " Disable the annoying rubocope
+  let g:neoformat_only_msg_on_error = 1
+
+  let g:neoformat_enabled_javascript = ['prettier']
   let g:neomake_ruby_enabled_makers = ['mri', 'reek']
 
   let g:neomake_warning_sign = {'text': '•'}
