@@ -73,8 +73,8 @@
   call dein#add('scrooloose/nerdtree')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('tpope/vim-repeat')
-  call dein#add('jiangmiao/auto-pairs')
-  " call dein#add('tpope/vim-unimpaired')
+  " call dein#add('jiangmiao/auto-pairs')
+  call dein#add('tpope/vim-unimpaired')
   call dein#add('neomake/neomake', {'on_cmd': ['Neomake']})
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('AndrewRadev/switch.vim')
@@ -278,49 +278,39 @@
   " nmap <silent> <leader>c "+yy
   " vmap <silent> <leader>c "+y
 
-  " Move line
-  " nnoremap <M-k> :m-2<CR>
-  " nnoremap <M-j> :m+<CR>
-  " inoremap <M-k> <Esc>:m-2<CR>
-  " inoremap <M-j> <Esc>:m+<CR>
-
   " Move to begining and end of line
   " inoremap <C-h> <Esc>I
   " inoremap <C-l> <Esc>A
 
   " From Janus, indenting
-  vmap <A-]> >gv
-  vmap <A-[> <gv
+  vmap <M-]> >gv
+  vmap <M-[> <gv
 
-  nmap <A-]> >>
-  nmap <A-[> <<
+  nmap <M-]> >>
+  nmap <M-[> <<
 
-  omap <A-]> >>
-  omap <A-[> <<
+  omap <M-]> >>
+  omap <M-[> <<
 
-  imap <A-]> <Esc>>>i
-  imap <A-[> <Esc><<i
+  imap <M-]> <Esc>>>i
+  imap <M-[> <Esc><<i
 
-  " Bubble single lines
-  nmap <A-Up> [e
-  nmap <A-Down> ]e
-  nmap <A-k> [e
-  nmap <A-j> ]e
+  " Bubble single line, requires stpope/vim-unimpaired
+  nmap <M-Up> [e
+  nmap <M-Down> ]e
+  nmap <M-k> [e
+  nmap <M-j> ]e
 
-  " Bubble multiple lines
-  vmap <A-k> [egv
-  vmap <A-j> ]egv
+  " Bubble multiple lines, requires stpope/vim-unimpaired
+  vmap <M-k> [egv
+  vmap <M-j> ]egv
 
   " Adjust viewports to the same size
   map <Leader>= <C-w>=
 
-  " upper/lower first char of word
-  nmap <leader>U mQgewvU`Q
-  nmap <leader>L mQgewvu`Q
-
   " Traverse text in insert mode
-  inoremap <A-h> <C-o>b
-  inoremap <A-l> <C-o>w
+  inoremap <M-h> <C-o>b
+  inoremap <M-l> <C-o>w
 
 "}}}"
 
