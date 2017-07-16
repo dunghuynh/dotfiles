@@ -40,6 +40,7 @@
   call dein#add('easymotion/vim-easymotion')
   call dein#add('tmux-plugins/vim-tmux-focus-events')
   call dein#add('blueyed/vim-diminactive')
+  call dein#add('tpope/vim-eunuch')
 
 " syntax
   call dein#add('sheerun/vim-polyglot')
@@ -222,8 +223,8 @@
   inoremap <c-d> <esc>ddi
   noremap H ^
   noremap L g_
-  noremap J 5j
-  noremap K 5k
+  " noremap J 5j
+  " noremap K 5k
   " nnoremap K 5k
 " this is the best, let me tell you why
 " how annoying is that everytime you want to do something in vim
@@ -355,7 +356,7 @@
   " colorscheme monokai
   " colorscheme one
   " colorscheme onedark
-  let g:diminactive_enable_focus = 1
+  " let g:diminactive_enable_focus = 1
   let g:diminactive_use_colorcolumn = 1
 "}}}
 
@@ -555,7 +556,7 @@
   let g:NERDTreeHeader = 'hello'
 
 
-" let g:webdevicons_conceal_nerdtree_brackets = 0
+  " let g:webdevicons_conceal_nerdtree_brackets = 0
   let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
   " 
   let g:NERDTreeShowIgnoredStatus = 0
@@ -565,6 +566,8 @@
   let g:NERDTreeDirArrowCollapsible = ''
   " let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
   " let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
+  let g:NERDTreeIgnore=['\~$', '.git']
 "}}}
 
 " Nvim terminal -------------------------------------------------------------{{{
@@ -873,12 +876,12 @@
 " Linting -------------------------------------------------------------------{{{
 
   autocmd! BufWritePost * Neomake
-  autocmd BufWritePre *.js,*.rb Neoformat
-  " Disable the annoying rubocope
+  " autocmd BufWritePre *.js,*.rb Neoformat
+  " Disable the annoying rubocop
   let g:neoformat_only_msg_on_error = 1
 
   let g:neoformat_enabled_javascript = ['prettier']
-  let g:neomake_ruby_enabled_makers = ['mri', 'reek']
+  " let g:neomake_ruby_enabled_makers = ['mri', 'reek']
 
   let g:neomake_warning_sign = {'text': '•'}
   let g:neomake_error_sign = {'text': '•'}
