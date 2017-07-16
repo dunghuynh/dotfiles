@@ -13,6 +13,7 @@ alias bower='noglob bower'
 alias vim='nvim'
 alias vi='nvim'
 alias mux='tmuxinator'
+alias muxx='tmuxinator w'
 alias hidden="ls -dF .*"
 
 # # Preferred editor for local and remote sessions
