@@ -39,6 +39,8 @@
   call dein#add('tpope/vim-obsession')
   call dein#add('easymotion/vim-easymotion')
   call dein#add('tmux-plugins/vim-tmux-focus-events')
+  call dein#add('blueyed/vim-diminactive')
+
 " syntax
   call dein#add('sheerun/vim-polyglot')
   " call dein#add('pangloss/vim-javascript')
@@ -353,6 +355,8 @@
   " colorscheme monokai
   " colorscheme one
   " colorscheme onedark
+  let g:diminactive_enable_focus = 1
+  let g:diminactive_use_colorcolumn = 1
 "}}}
 
 " MarkDown ------------------------------------------------------------------{{{
