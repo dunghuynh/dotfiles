@@ -235,6 +235,10 @@
 " give it a try and you will like it
   nnoremap ; :
   inoremap <c-f> <c-x><c-f>
+" Use CTRL-S for saving, also in Insert mode
+  noremap <C-S> :update<CR>
+  vnoremap <C-S> <C-C>:update<CR>
+  inoremap <C-S> <C-O>:update<CR>
 " Copy to osx clipboard
   vnoremap <C-c> "*y<CR>
   vnoremap y "*y<CR>
