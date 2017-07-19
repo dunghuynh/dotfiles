@@ -512,7 +512,7 @@
   autocmd FileType css,scss,json setlocal foldmarker={,}
 
   autocmd FileType coffee setl foldmethod=indent
-  let g:xml_syntax_folding = 1
+  " let g:xml_syntax_folding = 1
   autocmd FileType xml setl foldmethod=syntax
 
   autocmd FileType html setl foldmethod=expr
