@@ -593,7 +593,7 @@
 " Code formatting -----------------------------------------------------------{{{
 
 " ,f to format code, requires formatters: read the docs
-  noremap <silent> <leader>a :Neoformat<CR>
+  noremap <leader>a :Neoformat<CR>
 
 " }}}
 
