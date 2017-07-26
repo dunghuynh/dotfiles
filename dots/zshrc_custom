@@ -58,33 +58,20 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_BREW="/usr/local/opt/nvm/"
 
 #Lazy load nvm
-# nvm() {
-#   unset -f nvm
-#   unset -f node
-#   unset -f npm
-#   [ -s "$NVM_BREW/nvm.sh" ] && . "$NVM_BREW/nvm.sh"  # This loads nvm
-#   nvm "$@"
-# }
+nvm() {
+  init_nvm
+  nvm "$@"
+}
 
-# node() {
-#   unset -f nvm
-#   unset -f node
-#   unset -f npm
-#   [ -s "$NVM_BREW/nvm.sh" ] && . "$NVM_BREW/nvm.sh"  # This loads nvm
-#   node "$@"
-# }
+node() {
+  init_nvm
+  node "$@"
+}
 
-# npm() {
-#   unset -f nvm
-#   unset -f node
-#   unset -f npm
-#   [ -s "$NVM_BREW/nvm.sh" ] && . "$NVM_BREW/nvm.sh"  # This loads nvm
-#   npm "$@"
-# }
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+npm() {
+  init_nvm
+  npm "$@"
+}
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/bin"
@@ -95,26 +82,34 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+init_nvm() {
+  unset -f nvm
+  unset -f node
+  unset -f npm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
+    if [ -n "$nvmrc_path" ]; then
+      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+      if [ "$nvmrc_node_version" = "N/A" ]; then
+        nvm install
+      elif [ "$nvmrc_node_version" != "$node_version" ]; then
+        nvm use
+      fi
+    elif [ "$node_version" != "$(nvm version default)" ]; then
+      echo "Reverting to nvm default version"
+      nvm use default
     fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
+  }
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+
 
 export PATH="./node_modules/.bin:$PATH"
 if [ -f ~/.zshrc_local ]; then
