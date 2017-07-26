@@ -1,6 +1,6 @@
 " Original Author: Mike Hartington
 " repo  : https://github.com/mhartington/dotfiles/
-"
+
 
 " Setup dein  ---------------------------------------------------------------{{{
   if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
@@ -378,6 +378,10 @@
 "}}}
 
 " Javascript ----------------------------------------------------------------{{{
+
+  if exists('./node_modules/.bin/eslint/')
+    let g:neomake_eslint_maker = { 'exe': './node_modules/.bin/eslint' }
+  endif
 
   let g:neomake_javascript_enabled_makers = ['eslint']
 
