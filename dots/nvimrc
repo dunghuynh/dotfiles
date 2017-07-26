@@ -1,6 +1,6 @@
 " Original Author: Mike Hartington
 " repo  : https://github.com/mhartington/dotfiles/
-"
+
 
 " Setup dein  ---------------------------------------------------------------{{{
   if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
@@ -235,6 +235,10 @@
 " give it a try and you will like it
   nnoremap ; :
   inoremap <c-f> <c-x><c-f>
+" Use CTRL-S for saving, also in Insert mode
+  noremap <C-S> :update<CR>
+  vnoremap <C-S> <C-C>:update<CR>
+  inoremap <C-S> <C-O>:update<CR>
 " Copy to osx clipboard
   vnoremap <C-c> "*y<CR>
   vnoremap y "*y<CR>
@@ -375,6 +379,10 @@
 
 " Javascript ----------------------------------------------------------------{{{
 
+  if exists('./node_modules/.bin/eslint/')
+    let g:neomake_eslint_maker = { 'exe': './node_modules/.bin/eslint' }
+  endif
+
   let g:neomake_javascript_enabled_makers = ['eslint']
 
   let g:jsx_ext_required = 0
@@ -508,7 +516,7 @@
   autocmd FileType css,scss,json setlocal foldmarker={,}
 
   autocmd FileType coffee setl foldmethod=indent
-  let g:xml_syntax_folding = 1
+  " let g:xml_syntax_folding = 1
   autocmd FileType xml setl foldmethod=syntax
 
   autocmd FileType html setl foldmethod=expr
@@ -589,7 +597,7 @@
 " Code formatting -----------------------------------------------------------{{{
 
 " ,f to format code, requires formatters: read the docs
-  noremap <silent> <leader>a :Neoformat<CR>
+  noremap <leader>a :Neoformat<CR>
 
 " }}}
 
@@ -880,7 +888,7 @@
   " Disable the annoying rubocop
   let g:neoformat_only_msg_on_error = 1
 
-  let g:neoformat_enabled_javascript = ['prettier']
+  let g:neoformat_enabled_javascript = ['prettiereslint']
   " let g:neomake_ruby_enabled_makers = ['mri', 'reek']
 
   let g:neomake_warning_sign = {'text': '•'}
