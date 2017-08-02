@@ -50,6 +50,8 @@
   " call dein#add('elzr/vim-json')
   " call dein#add('kchmck/vim-coffee-script')
 
+  call dein#add('fleischie/vim-styled-components')
+  call dein#add('hail2u/vim-css3-syntax')
   call dein#add('othree/yajs.vim')
   call dein#add('othree/es.next.syntax.vim')
   call dein#add('HerringtonDarkholme/yats.vim')

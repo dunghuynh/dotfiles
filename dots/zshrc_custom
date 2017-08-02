@@ -73,6 +73,16 @@ npm() {
   npm "$@"
 }
 
+yarn() {
+  init_nvm
+  yarn "$@"
+}
+
+prettier-eslint() {
+  init_nvm
+  yarn "$@"
+}
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/bin"
 export PATH="./bin:$PATH"
@@ -86,6 +96,8 @@ init_nvm() {
   unset -f nvm
   unset -f node
   unset -f npm
+  unset -f yarn
+  unset -f prettier-eslint
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
   autoload -U add-zsh-hook
